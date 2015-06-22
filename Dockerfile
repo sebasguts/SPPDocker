@@ -88,4 +88,23 @@ RUN    cd /tmp \
     && chmod +x InstPackages.sh \
     && ./InstPackages.sh \
     && rm -rf InstPackages.sh \
-    && sudo ln -sn /opt/gap4r7/bin/gap.sh /usr/local/bin/gap
+
+# Local package folder and workspace for GAP
+RUN    cd /opt/gap4r7 \
+    && mkdir local \
+    && cd local \
+    && mkdir pkg \
+    && sudo bash -c "echo '/opt/gap4r7/bin/gap.sh -l \"/opt/gap4r7/local;/opt/gap4r7\" \"\$@\"' > /usr/bin/gap" && \
+    && cd /opt/gap4r7 \
+    && wget http://www.gap-system.org/Download/CreateWorkspace.sh \
+    && chmod +x CreateWorkspace.sh \
+    && ./CreateWorkspace.sh \
+    && rm CreateWorkspace.sh \
+    && sudo bash -c "echo '/opt/gap4r7/bin/gap.sh -l \"/opt/gap4r7/local;/opt/gap4r7\" -L /opt/gap4r7/bin/wsgap4 \"\$@\"' > /usr/bin/gapL" && \
+    && mkdir /home/spp/.gap \
+    && echo 'SetUserPreference( "UseColorPrompt", true );' > /home/spp/.gap/gap.ini \
+    && echo 'SetUserPreference( "UseColorsInTerminal", true );' > /home/spp/.gap/gap.ini \
+    && echo 'SetUserPreference( "HistoryMaxLines", 10000 );' > /home/spp/.gap/gap.ini \
+    && echo 'SetUserPreference( "SaveAndRestoreHistory", true );' > /home/spp/.gap/gap.ini
+
+
