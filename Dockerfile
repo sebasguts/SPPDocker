@@ -25,7 +25,7 @@ RUN    sudo apt-get -qq install -y build-essential m4 libreadline6-dev \
                                    libmpfr-dev libmpfi-dev libmpc-dev libfplll-dev \
                                    ## Singular stuff
                                    autoconf autogen libtool libreadline6-dev libglpk-dev \
-                                   libmpfr-dev libcdd-dev libntl-dev git
+                                   libmpfr-dev libcdd-dev libntl-dev git mercurial cmake
 
 
 # Flint
@@ -63,15 +63,15 @@ RUN    cd /tmp \
     && rm -rf polymake*
 
 # 4ti2
-RUN    cd /opt \
-    && sudo wget http://www.4ti2.de/version_1.6.3/4ti2-1.6.3.tar.gz \
-    && sudo tar -xf 4ti2-1.6.3.tar.gz \
-    && sudo chown -hR spp 4ti2-1.6.3 \
-    && sudo rm 4ti2-1.6.3.tar.gz \
-    && cd 4ti2-1.6.3 \
-    && ./configure \
-    && make -j \
-    && sudo make install
+RUN    cd /tmp \
+    && wget http://www.4ti2.de/version_1.6.6/4ti2-1.6.6.tar.gz \
+    && tar -xf 4ti2-1.6.6.tar.gz \
+    && cd 4ti2-1.6.6 \
+    && ./configure --enable-shared \
+    && make -j10 \
+    && sudo make install \
+    && cd /tmp \
+    && rm -rf 4ti2*
 
 ## Normaliz
 RUN    cd /tmp \
@@ -82,6 +82,8 @@ RUN    cd /tmp \
     && cmake ../source \
     && make -j \
     && sudo make install
+    && cd /tmp
+    && rm -rf Normaliz
 
 # GAP
 RUN    cd /tmp \
@@ -116,5 +118,15 @@ RUN    cd /opt/gap4r7 \
     && echo 'SetUserPreference( "UseColorsInTerminal", true );' > /home/spp/.gap/gap.ini \
     && echo 'SetUserPreference( "HistoryMaxLines", 10000 );' > /home/spp/.gap/gap.ini \
     && echo 'SetUserPreference( "SaveAndRestoreHistory", true );' > /home/spp/.gap/gap.ini
+
+# GAP packages: homalg-project, SingularInterface, NormalizInterface, 4ti2gap
+RUN    cd /opt/gap4r7/local/pkg \
+    && git clone git@github.com:fingolfin/NormalizInterface.git \
+    && cd NormalizInterface \
+    && ./autogen.sh \
+    && ./configure --with-gaproot=/opt/gap4r7 --with-normaliz=/usr/local \
+    && make \
+    && cd .. \
+    
 
 
