@@ -73,6 +73,16 @@ RUN    cd /opt \
     && make -j \
     && sudo make install
 
+## Normaliz
+RUN    cd /tmp \
+    && git clone https://github.com/Normaliz/Normaliz.git \
+    && cd Normaliz \
+    && mkdir BUILD \
+    && cd BUILD \
+    && cmake ../source \
+    && make -j \
+    && sudo make install
+
 # GAP
 RUN    cd /tmp \
     && wget http://www.gap-system.org/pub/gap/gap47/tar.gz/gap4r7p8_2015_06_09-20_27.tar.gz \
