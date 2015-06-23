@@ -106,13 +106,13 @@ RUN    cd /opt/gap4r7 \
     && mkdir local \
     && cd local \
     && mkdir pkg \
-    && sudo bash -c "echo '/opt/gap4r7/bin/gap.sh -l \"/opt/gap4r7/local;/opt/gap4r7\" \"\$@\"' > /usr/bin/gap" && \
+    && sudo bash -c "echo '/opt/gap4r7/bin/gap.sh -l \"/opt/gap4r7/local;/opt/gap4r7\" \"\$@\"' > /usr/bin/gap" \
     && cd /opt/gap4r7 \
     && wget http://www.gap-system.org/Download/CreateWorkspace.sh \
     && chmod +x CreateWorkspace.sh \
     && ./CreateWorkspace.sh \
     && rm CreateWorkspace.sh \
-    && sudo bash -c "echo '/opt/gap4r7/bin/gap.sh -l \"/opt/gap4r7/local;/opt/gap4r7\" -L /opt/gap4r7/bin/wsgap4 \"\$@\"' > /usr/bin/gapL" && \
+    && sudo bash -c "echo '/opt/gap4r7/bin/gap.sh -l \"/opt/gap4r7/local;/opt/gap4r7\" -L /opt/gap4r7/bin/wsgap4 \"\$@\"' > /usr/bin/gapL" \
     && mkdir /home/spp/.gap \
     && echo 'SetUserPreference( "UseColorPrompt", true );' > /home/spp/.gap/gap.ini \
     && echo 'SetUserPreference( "UseColorsInTerminal", true );' > /home/spp/.gap/gap.ini \
@@ -126,7 +126,6 @@ RUN    cd /opt/gap4r7/local/pkg \
     && ./autogen.sh \
     && ./configure --with-gaproot=/opt/gap4r7 --with-normaliz=/usr/local \
     && make \
-    && cd .. \
-    
+    && cd ..
 
 
