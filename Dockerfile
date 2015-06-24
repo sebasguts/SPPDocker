@@ -121,11 +121,9 @@ RUN    cd /opt/gap4r7 \
 
 # GAP packages: homalg-project, SingularInterface, NormalizInterface, 4ti2gap
 RUN    cd /opt/gap4r7/local/pkg \
-    && git clone git@github.com:fingolfin/NormalizInterface.git \
+    && git clone https://github.com/fingolfin/NormalizInterface.git \
     && cd NormalizInterface \
     && ./autogen.sh \
     && ./configure --with-gaproot=/opt/gap4r7 --with-normaliz=/usr/local \
     && make \
     && cd ..
-
-
