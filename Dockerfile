@@ -81,8 +81,8 @@ RUN    cd /tmp \
     && cd BUILD \
     && cmake ../source \
     && make -j \
-    && sudo make install
-    && cd /tmp
+    && sudo make install \
+    && cd /tmp \
     && rm -rf Normaliz
 
 # GAP
@@ -99,7 +99,7 @@ RUN    cd /tmp \
     && wget https://raw.githubusercontent.com/gap-system/gap-docker/master/InstPackages.sh \
     && chmod +x InstPackages.sh \
     && ./InstPackages.sh \
-    && rm -rf InstPackages.sh \
+    && rm -rf InstPackages.sh
 
 # Local package folder and workspace for GAP
 RUN    cd /opt/gap4r7 \
