@@ -117,9 +117,9 @@ RUN    cd /opt/gap4r7 \
     && sudo chmod +x /usr/bin/gapL \
     && mkdir /home/spp/.gap \
     && echo 'SetUserPreference( "UseColorPrompt", true );' > /home/spp/.gap/gap.ini \
-    && echo 'SetUserPreference( "UseColorsInTerminal", true );' > /home/spp/.gap/gap.ini \
-    && echo 'SetUserPreference( "HistoryMaxLines", 10000 );' > /home/spp/.gap/gap.ini \
-    && echo 'SetUserPreference( "SaveAndRestoreHistory", true );' > /home/spp/.gap/gap.ini \
+    && echo 'SetUserPreference( "UseColorsInTerminal", true );' >> /home/spp/.gap/gap.ini \
+    && echo 'SetUserPreference( "HistoryMaxLines", 10000 );' >> /home/spp/.gap/gap.ini \
+    && echo 'SetUserPreference( "SaveAndRestoreHistory", true );' >> /home/spp/.gap/gap.ini \
     && cd /opt/gap4r7 \
     && wget http://www.gap-system.org/Download/CreateWorkspace.sh \
     && chmod +x CreateWorkspace.sh \
