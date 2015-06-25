@@ -128,4 +128,8 @@ RUN    cd /opt/gap4r7/local/pkg \
     && ./autogen.sh \
     && ./configure --with-gaproot=/opt/gap4r7 --with-normaliz=/usr/local \
     && make \
-    && cd ..
+    && cd .. \
+    && hg clone https://sebasguts@bitbucket.org/gap-system/4ti2gap \
+    && cd 4ti2gap \
+    && ./configure --with-gaproot=/opt/gap4r7 --with-4ti2=/usr/local --with-gmp=yes \
+    && make
