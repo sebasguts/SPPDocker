@@ -152,8 +152,6 @@ RUN    cd /opt/gap4r7/local/pkg \
     && ./configure /opt/gap4r7 \
     && make
 
-make
-
 ENV HOME /home/spp
 WORKDIR /home/spp
 
