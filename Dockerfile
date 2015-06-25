@@ -128,8 +128,32 @@ RUN    cd /opt/gap4r7/local/pkg \
     && ./autogen.sh \
     && ./configure --with-gaproot=/opt/gap4r7 --with-normaliz=/usr/local \
     && make \
-    && cd .. \
+    && cd /opt/gap4r7/local/pkg \
     && hg clone https://sebasguts@bitbucket.org/gap-system/4ti2gap \
-    && cd 4ti2gap \
-    && ./configure --with-gaproot=/opt/gap4r7 --with-4ti2=/usr/local --with-gmp=yes \
+#     && cd 4ti2gap \
+#     && ./autogen.sh \
+#     && ./configure --with-gaproot=/opt/gap4r7 --with-4ti2=/usr/local --with-gmp=yes \
+#     && make \
+#     && cd /opt/gap4r7/local/pkg
+    && git clone https://github.com/gap-system/SingularInterface.git \
+    && cd SingularInterface \
+    && ./autogen.sh \
+    && ./configure --with-gaproot=/opt/gap4r7 --with-libSingular=/usr/local \
+    && make \
+    && cd /opt/gap4r7/local/pkg \
+    && export homalg_modules="AlgebraicThomas AbelianSystems alexander AutoDoc Blocks Conley D-Modules \
+                              k-Points LessGenerators LetterPlace SCO SCSCP_ForHomalg Sheaves SimplicialObjects \
+                              SystemTheory VirtualCAS CombinatoricsForHomalg CAP PrimaryDecomposition homalg_project" \
+    && for i in $homalg_modules; do git clone https://github.com/homalg-project/${i}.git; done \
+    && cd homalg_project/Gauss \
+    && ./configure /opt/gap4r7 \
+    && make \
+    && cd ../PolymakeInterface \
+    && ./configure /opt/gap4r7 \
     && make
+
+make
+
+ENV HOME /home/spp
+WORKDIR /home/spp
+
