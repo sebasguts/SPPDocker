@@ -67,9 +67,14 @@ RUN    cd /tmp \
     && wget http://www.4ti2.de/version_1.6.6/4ti2-1.6.6.tar.gz \
     && tar -xf 4ti2-1.6.6.tar.gz \
     && cd 4ti2-1.6.6 \
-    && ./configure --enable-shared \
+    && ./configure \
     && make -j10 \
     && sudo make install \
+    ## somehow it does not work with shared :(
+    && mkdir /home/spp/4ti2-shared \
+    && ./configure --prefix=/home/spp/4ti2-shared --enable-shared \
+    && make -j10 \
+    && make install \
     && cd /tmp \
     && rm -rf 4ti2*
 
@@ -132,7 +137,7 @@ RUN    cd /opt/gap4r7/local/pkg \
     && hg clone https://sebasguts@bitbucket.org/gap-system/4ti2gap \
 #     && cd 4ti2gap \
 #     && ./autogen.sh \
-#     && ./configure --with-gaproot=/opt/gap4r7 --with-4ti2=/usr/local --with-gmp=yes \
+#     && ./configure --with-gaproot=/opt/gap4r7 --with-4ti2=/home/spp/4ti2-shared --with-gmp=yes \
 #     && make \
 #     && cd /opt/gap4r7/local/pkg
     && git clone https://github.com/gap-system/SingularInterface.git \
