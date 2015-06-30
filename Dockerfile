@@ -29,7 +29,7 @@ RUN    sudo apt-get -qq install -y build-essential m4 libreadline6-dev \
                                    ## Stuff to make things nicer
                                    screen vim nano
 
-# Own GMP, ubuntu seems to have problems with 4ti2gap
+# Own GMP, 4ti2gap seems to have problems with ubuntu
 RUN    cd /tmp \
     && wget https://gmplib.org/download/gmp/gmp-6.0.0a.tar.bz2 \
     && tar -xf gmp-6.0.0a.tar.bz2 \
@@ -80,7 +80,7 @@ RUN    cd /tmp \
     && wget http://www.4ti2.de/version_1.6.6/4ti2-1.6.6.tar.gz \
     && tar -xf 4ti2-1.6.6.tar.gz \
     && cd 4ti2-1.6.6 \
-    && ./configure \
+    && ./configure --with-gmp=/home/spp/gmp \
     && make -j10 \
     && sudo make install \
     ## somehow it does not work with shared :(
@@ -161,7 +161,7 @@ RUN    cd /opt/gap4r7/local/pkg \
     && cd /opt/gap4r7/local/pkg \
     && export homalg_modules="AlgebraicThomas AbelianSystems alexander AutoDoc Blocks Conley D-Modules \
                               k-Points LessGenerators LetterPlace SCO SCSCP_ForHomalg Sheaves SimplicialObjects \
-                              SystemTheory VirtualCAS CombinatoricsForHomalg CAP PrimaryDecomposition homalg_project" \
+                              SystemTheory VirtualCAS CombinatoricsForHomalg CAP PrimaryDecomposition SingularForHomalg homalg_project" \
     && for i in $homalg_modules; do git clone https://github.com/homalg-project/${i}.git; done \
     && cd homalg_project/Gauss \
     && ./configure /opt/gap4r7 \
@@ -182,7 +182,9 @@ RUN    cd /opt/gap4r7/local/pkg \
     && echo 'export start_script_git=/home/spp/bin/autogap' >> init_homalg_starter \
     && chmod +x init_homalg_starter \
     && ./create_homalg_starter \
-    && ./create_homalg_starter_git
+    && ./create_homalg_starter_git \
+    && autogap < /dev/null \
+    && Autogap < /dev/null
 
 
 ENV HOME /home/spp
