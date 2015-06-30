@@ -25,7 +25,9 @@ RUN    sudo apt-get -qq install -y build-essential m4 libreadline6-dev \
                                    libmpfr-dev libmpfi-dev libmpc-dev libfplll-dev \
                                    ## Singular stuff
                                    autoconf autogen libtool libreadline6-dev libglpk-dev \
-                                   libmpfr-dev libcdd-dev libntl-dev git mercurial cmake
+                                   libmpfr-dev libcdd-dev libntl-dev git mercurial cmake \
+                                   ## Stuff to make things nicer
+                                   screen vim nano
 
 
 # Flint
@@ -155,7 +157,9 @@ RUN    cd /opt/gap4r7/local/pkg \
     && make \
     && cd ../PolymakeInterface \
     && ./configure /opt/gap4r7 \
-    && make
+    && make \
+    && cd .. \
+    && git clone https://github.com/martin-leuner/alcove.git
 
 ENV HOME /home/spp
 WORKDIR /home/spp
