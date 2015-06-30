@@ -173,16 +173,19 @@ RUN    cd /opt/gap4r7/local/pkg \
     && git clone https://github.com/martin-leuner/alcove.git \
     && git clone https://github.com/homalg-project/homalg_starter.git \
     && cd homalg_starter \
+    && mkdir /home/spp/bin \
     && echo 'export homalg_project_modules="4ti2Interface Convex ExamplesForHomalg Gauss GaussForHomalg GradedModules GradedRingForHomalg HomalgToCAS IO_ForHomalg LocalizeRingForHomalg MatricesForHomalg Modules RingsForHomalg SCO ToolsForHomalg ToricVarieties homalg"' > init_homalg_starter \
     && echo 'export extra_modules="alcove AbelianSystems AutoDoc D-Modules SCSCP_ForHomalg Sheaves SimplicialObjects SystemTheory alexander k-Points Conley alexander LetterPlace CombinatoricsForHomalg"' >> init_homalg_starter \
     && echo 'export gap_bin=gap' >> init_homalg_starter \
     && echo 'export package_directory=/opt/gap4r7/local/pkg' >> init_homalg_starter \
-    && echo 'export start_script=/usr/local/bin/Autogap' >> init_homalg_starter \
-    && echo 'export start_script_git=/usr/local/bin/autogap' >> init_homalg_starter \
+    && echo 'export start_script=/home/spp/bin/Autogap' >> init_homalg_starter \
+    && echo 'export start_script_git=/home/spp/bin/autogap' >> init_homalg_starter \
     && chmod +x init_homalg_starter \
-    && sudo ./create_homalg_starter
+    && ./create_homalg_starter \
+    && ./create_homalg_starter_git
 
 
 ENV HOME /home/spp
+ENV PATH /home/spp/bin:$PATH
 WORKDIR /home/spp
 
