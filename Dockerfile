@@ -183,8 +183,8 @@ RUN    cd /opt/gap4r7/local/pkg \
     && chmod +x init_homalg_starter \
     && ./create_homalg_starter \
     && ./create_homalg_starter_git \
-    && autogap < /dev/null \
-    && Autogap < /dev/null
+    && /home/spp/bin/autogap < /dev/null \
+    && /home/spp/bin/Autogap < /dev/null
 
 
 ENV HOME /home/spp
