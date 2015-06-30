@@ -29,12 +29,23 @@ RUN    sudo apt-get -qq install -y build-essential m4 libreadline6-dev \
                                    ## Stuff to make things nicer
                                    screen vim nano
 
+# Own GMP, ubuntu seems to have problems with 4ti2gap
+RUN    cd /tmp \
+    && wget https://gmplib.org/download/gmp/gmp-6.0.0a.tar.bz2 \
+    && tar -xf gmp-6.0.0a.tar.bz2 \
+    && cd gmp-6.0.0 \
+    && mkdir /home/spp/gmp \
+    && ./configure --prefix=/home/spp/gmp \
+    && make -j \
+    && make install \
+    && cd /tmp \
+    && rm -rf gmp*
 
 # Flint
 RUN    cd /tmp \
     && git clone https://github.com/wbhart/flint2.git \
     && cd flint2 \
-    && ./configure \
+    && ./configure --with-gmp=/home/spp/gmp \
     && make -j \
     && sudo make install \
     && cd /tmp \
@@ -48,7 +59,7 @@ RUN    cd /opt \
     && git clone https://github.com/Singular/Sources.git \
     && cd Sources \
     && ./autogen.sh \
-    && ./configure --enable-gfanlib --with-flint=yes \
+    && ./configure --enable-gfanlib --with-flint=yes --with-gmp=/home/spp/gmp \
     && make -j \
     && make check \
     && sudo make install
@@ -58,7 +69,7 @@ RUN    cd /tmp \
     && wget http://www.polymake.org/lib/exe/fetch.php/download/polymake-2.14.tar.bz2 \
     && tar -xf polymake-2.14.tar.bz2 \
     && cd polymake-2.14 \\
-    && ./configure --without-java --with-gmp=system \
+    && ./configure --without-java --with-gmp=/home/spp/gmp \
     && make -j \
     && sudo make install \
     && cd /tmp \
@@ -74,7 +85,7 @@ RUN    cd /tmp \
     && sudo make install \
     ## somehow it does not work with shared :(
     && mkdir /home/spp/4ti2-shared \
-    && ./configure --prefix=/home/spp/4ti2-shared --enable-shared \
+    && ./configure --prefix=/home/spp/4ti2-shared --enable-shared --with-gmp=/home/spp/gmp \
     && make -j10 \
     && make install \
     && cd /tmp \
@@ -86,7 +97,7 @@ RUN    cd /tmp \
     && cd Normaliz \
     && mkdir BUILD \
     && cd BUILD \
-    && cmake ../source \
+    && GMP_DIR=/home/spp/gmp cmake ../source \
     && make -j \
     && sudo make install \
     && cd /tmp \
@@ -100,7 +111,7 @@ RUN    cd /tmp \
     && sudo mv gap4r7 /opt/ \
     && sudo chown -R spp /opt/gap4r7 \
     && cd /opt/gap4r7 \
-    && ./configure --with-gmp=system \
+    && ./configure --with-gmp=/home/spp/gmp \
     && make -j \
     && cd pkg \
     && wget https://raw.githubusercontent.com/gap-system/gap-docker/master/InstPackages.sh \
@@ -133,15 +144,15 @@ RUN    cd /opt/gap4r7/local/pkg \
     && git clone https://github.com/fingolfin/NormalizInterface.git \
     && cd NormalizInterface \
     && ./autogen.sh \
-    && ./configure --with-gaproot=/opt/gap4r7 --with-normaliz=/usr/local \
+    && ./configure --with-gaproot=/opt/gap4r7 --with-normaliz=/usr/local --with-gmp=/home/spp/gmp \
     && make \
     && cd /opt/gap4r7/local/pkg \
     && hg clone https://sebasguts@bitbucket.org/gap-system/4ti2gap \
-#     && cd 4ti2gap \
-#     && ./autogen.sh \
-#     && ./configure --with-gaproot=/opt/gap4r7 --with-4ti2=/home/spp/4ti2-shared --with-gmp=yes \
-#     && make \
-#     && cd /opt/gap4r7/local/pkg
+    && cd 4ti2gap \
+    && ./autogen.sh \
+    && ./configure --with-gaproot=/opt/gap4r7 --with-4ti2=/home/spp/4ti2-shared --with-gmp=/home/spp/gmp \
+    && make \
+    && cd /opt/gap4r7/local/pkg
     && git clone https://github.com/gap-system/SingularInterface.git \
     && cd SingularInterface \
     && ./autogen.sh \
