@@ -150,8 +150,8 @@ RUN    cd /opt/gap4r7/local/pkg \
     && hg clone https://sebasguts@bitbucket.org/gap-system/4ti2gap \
     && cd 4ti2gap \
     && ./autogen.sh \
-    && ./configure --with-gaproot=/opt/gap4r7 --with-4ti2=/home/spp/4ti2-shared --with-gmp=/home/spp/gmp \
-    && make \
+#     && ./configure --with-gaproot=/opt/gap4r7 --with-4ti2=/home/spp/4ti2-shared --with-gmp=/home/spp/gmp \
+#     && make \
     && cd /opt/gap4r7/local/pkg
     && git clone https://github.com/gap-system/SingularInterface.git \
     && cd SingularInterface \
