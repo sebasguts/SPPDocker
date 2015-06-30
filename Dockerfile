@@ -169,7 +169,7 @@ RUN    cd /opt/gap4r7/local/pkg \
     && cd ../PolymakeInterface \
     && ./configure /opt/gap4r7 \
     && make \
-    && cd .. \
+    && cd /opt/gap4r7/local/pkg \
     && git clone https://github.com/martin-leuner/alcove.git \
     && git clone https://github.com/homalg-project/homalg_starter.git \
     && cd homalg_starter \
