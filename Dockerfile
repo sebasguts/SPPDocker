@@ -175,6 +175,7 @@ RUN    cd /opt/gap4r7/local/pkg \
     && make \
     && cd /opt/gap4r7/local/pkg \
     && git clone https://github.com/martin-leuner/alcove.git \
+    && hg clone https://sebasguts@bitbucket.org/gap-system/numericalsgps \
     && git clone https://github.com/homalg-project/homalg_starter.git \
     && cd homalg_starter \
     && mkdir /home/spp/bin \
