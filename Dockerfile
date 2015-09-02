@@ -150,7 +150,7 @@ RUN    cd /opt/gap4r7/local/pkg \
     && git clone https://github.com/csoeger/Normaliz Normaliz.git \
     && ./build-normaliz.sh \
     && ./autogen.sh \
-    && ./configure --with-gaproot=/opt/gap4r7 --with-normaliz=/usr/local --with-gmp=/home/spp/gmp \
+    && ./configure --with-gaproot=/opt/gap4r7 --with-normaliz=$PWD/Normaliz.git/DST --with-gmp=/home/spp/gmp \
     && make \
     && cd /opt/gap4r7/local/pkg \
     && hg clone https://sebasguts@bitbucket.org/gap-system/4ti2gap \
