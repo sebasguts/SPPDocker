@@ -147,6 +147,8 @@ RUN    cd /opt/gap4r7 \
 RUN    cd /opt/gap4r7/local/pkg \
     && git clone https://github.com/fingolfin/NormalizInterface.git \
     && cd NormalizInterface \
+    && git clone https://github.com/csoeger/Normaliz Normaliz.git \
+    && ./build-normaliz.sh \
     && ./autogen.sh \
     && ./configure --with-gaproot=/opt/gap4r7 --with-normaliz=/usr/local --with-gmp=/home/spp/gmp \
     && make \
