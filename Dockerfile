@@ -160,7 +160,7 @@ RUN    cd /opt/gap4r7 \
 RUN    cd /opt/gap4r7/local/pkg \
     && git clone https://github.com/fingolfin/NormalizInterface.git \
     && cd NormalizInterface \
-    && git clone https://github.com/csoeger/Normaliz Normaliz.git \
+    && git clone https://github.com/normaliz/Normaliz Normaliz.git \
     && ./build-normaliz.sh \
     && ./autogen.sh \
     && ./configure --with-gaproot=/opt/gap4r7 --with-normaliz=$PWD/Normaliz.git/DST --with-gmp=/home/spp/gmp \
