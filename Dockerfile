@@ -68,7 +68,7 @@ RUN    cd /opt \
 RUN    cd /tmp \
     && git clone --branch Snapshots --depth 1 https://github.com/polymake/polymake.git polymake-beta \
     && cd polymake-beta \\
-    && ./configure --without-java --without-jreality --without--javaview --with-gmp=/home/spp/gmp \
+    && ./configure --without-java --without-jreality --without-javaview --with-gmp=/home/spp/gmp \
     && make -j \
     && sudo make install \
     && cd /tmp \
@@ -121,6 +121,19 @@ RUN    cd /tmp \
     && chmod +x InstPackages.sh \
     && ./InstPackages.sh \
     && rm -rf InstPackages.sh
+
+# Nemo
+RUN    sudo add-apt-repository ppa:staticfloat/juliareleases \
+    && sudo add-apt-repository ppa:staticfloat/julia-deps \
+    && sudo apt-get update \
+    && sudo apt-get install julia \
+    && cd /tmp \
+    && touch nemo_install \
+    && echo 'Pkg.clone("https://github.com/wbhart/Nemo.jl")' > nemo_install \
+    && echo 'Pkg.build("Nemo")' >> nemo_install \
+    && julia nemo_install \
+    && rm nemo_install
+    
 
 # Local package folder and workspace for GAP
 RUN    cd /opt/gap4r7 \
