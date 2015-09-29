@@ -6,10 +6,11 @@ The image is availible at https://registry.hub.docker.com/u/sebasguts/sppdocker/
 
 At the moment, the image contains the following software:
 
-* Singular (with flint)
-* Polymake
-* Normaliz
-* 4ti2 (unabhängig von Polymake)
+* Singular (with flint, version of the day)
+* Polymake (latest snapshot)
+* Normaliz (3.0)
+* 4ti2 (independent Polymake)
+* nemo
 * GAP together with:
   - homalg (deposited packages)
   - PolymakeInterface

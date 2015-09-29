@@ -179,7 +179,7 @@ RUN    cd /opt/gap4r7/local/pkg \
     && cd /opt/gap4r7/local/pkg \
     && export homalg_modules="AlgebraicThomas AbelianSystems alexander AutoDoc Blocks Conley D-Modules \
                               k-Points LessGenerators LetterPlace SCO SCSCP_ForHomalg Sheaves SimplicialObjects \
-                              SystemTheory VirtualCAS CombinatoricsForHomalg CAP PrimaryDecomposition SingularForHomalg homalg_project" \
+                              SystemTheory VirtualCAS CombinatoricsForHomalg CAP_project PrimaryDecomposition SingularForHomalg homalg_project" \
     && for i in $homalg_modules; do git clone https://github.com/homalg-project/${i}.git; done \
     && cd homalg_project/Gauss \
     && ./configure /opt/gap4r7 \
