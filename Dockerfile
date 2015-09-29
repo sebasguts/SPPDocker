@@ -123,8 +123,8 @@ RUN    cd /tmp \
     && rm -rf InstPackages.sh
 
 # Nemo
-RUN    sudo add-apt-repository ppa:staticfloat/juliareleases \
-    && sudo add-apt-repository ppa:staticfloat/julia-deps \
+RUN    sudo apt-add-repository ppa:staticfloat/juliareleases \
+    && sudo apt-add-repository ppa:staticfloat/julia-deps \
     && sudo apt-get update \
     && sudo apt-get install julia \
     && cd /tmp \
