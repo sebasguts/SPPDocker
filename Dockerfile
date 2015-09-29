@@ -66,10 +66,9 @@ RUN    cd /opt \
 
 # Polymake
 RUN    cd /tmp \
-    && wget http://www.polymake.org/lib/exe/fetch.php/download/polymake-2.14.tar.bz2 \
-    && tar -xf polymake-2.14.tar.bz2 \
-    && cd polymake-2.14 \\
-    && ./configure --without-java --with-gmp=/home/spp/gmp \
+    && git clone --branch Snapshots --depth 1 https://github.com/polymake/polymake.git polymake-beta \
+    && cd polymake-beta \\
+    && ./configure --without-java --without-jreality --without--javaview --with-gmp=/home/spp/gmp \
     && make -j \
     && sudo make install \
     && cd /tmp \
