@@ -122,18 +122,18 @@ RUN    cd /tmp \
     && ./InstPackages.sh \
     && rm -rf InstPackages.sh
 
-# Nemo
-RUN    sudo apt-get install -y software-properties-common \
-    && sudo apt-add-repository ppa:staticfloat/juliareleases \
-    && sudo apt-add-repository ppa:staticfloat/julia-deps \
-    && sudo apt-get update -qq \
-    && sudo apt-get install -y julia \
-    && cd /tmp \
-    && touch nemo_install \
-    && echo 'Pkg.clone("https://github.com/wbhart/Nemo.jl")' > nemo_install \
-    && echo 'Pkg.build("Nemo")' >> nemo_install \
-    && julia nemo_install \
-    && rm nemo_install
+# # Nemo
+# RUN    sudo apt-get install -y software-properties-common \
+#     && sudo apt-add-repository ppa:staticfloat/juliareleases \
+#     && sudo apt-add-repository ppa:staticfloat/julia-deps \
+#     && sudo apt-get update -qq \
+#     && sudo apt-get install -y julia \
+#     && cd /tmp \
+#     && touch nemo_install \
+#     && echo 'Pkg.clone("https://github.com/wbhart/Nemo.jl")' > nemo_install \
+#     && echo 'Pkg.build("Nemo")' >> nemo_install \
+#     && julia nemo_install \
+#     && rm nemo_install
     
 
 # Local package folder and workspace for GAP
