@@ -126,8 +126,8 @@ RUN    cd /tmp \
 RUN    sudo apt-get install -y software-properties-common \
     && sudo apt-add-repository ppa:staticfloat/juliareleases \
     && sudo apt-add-repository ppa:staticfloat/julia-deps \
-    && sudo apt-get update \
-    && sudo apt-get install julia \
+    && sudo apt-get update -qq \
+    && sudo apt-get install -y julia \
     && cd /tmp \
     && touch nemo_install \
     && echo 'Pkg.clone("https://github.com/wbhart/Nemo.jl")' > nemo_install \
