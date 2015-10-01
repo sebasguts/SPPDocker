@@ -13,21 +13,48 @@ RUN apt-get update -qq \
 USER spp
 
 ## Install missing packages
-RUN    sudo apt-get -qq install -y build-essential m4 libreadline6-dev \
-                                   libncurses5-dev wget unzip libgmp3-dev \
-                                   ant ant-optional g++ libboost-dev \
-                                   libgmp-dev libgmpxx4ldbl libmpfr-dev libperl-dev \
-                                   libsvn-perl libterm-readline-gnu-perl \
-                                   libxml-libxml-perl libxml-libxslt-perl libxml-perl \
-                                   libxml-writer-perl libxml2-dev w3c-dtd-xhtml xsltproc \
-                                   bliss libbliss-dev \
-                                   ## GAP stuff
-                                   libmpfr-dev libmpfi-dev libmpc-dev libfplll-dev \
-                                   ## Singular stuff
-                                   autoconf autogen libtool libreadline6-dev libglpk-dev \
-                                   libmpfr-dev libcdd-dev libntl-dev git mercurial cmake \
-                                   ## Stuff to make things nicer
-                                   screen vim nano
+RUN    sudo apt-get -qq install -y \
+    ant \
+    ant-optional \
+    autoconf \
+    autogen \
+    bliss \
+    build-essential \
+    cmake \
+    g++ \
+    git \
+    libbliss-dev \
+    libboost-dev \
+    libcdd-dev \
+    libfplll-dev \
+    libglpk-dev \
+    libgmp-dev \
+    libgmp3-dev \
+    libgmpxx4ldbl \
+    libmpc-dev \
+    libmpfi-dev \
+    libmpfr-dev \
+    libncurses5-dev \
+    libntl-dev \
+    libperl-dev \
+    libreadline6-dev \
+    libsvn-perl \
+    libterm-readline-gnu-perl \
+    libtool \
+    libxml-libxml-perl \
+    libxml-libxslt-perl \
+    libxml-perl \
+    libxml-writer-perl \
+    libxml2-dev \
+    m4 \
+    mercurial \
+    nano \
+    screen \
+    unzip \
+    vim \
+    w3c-dtd-xhtml \
+    wget \
+    xsltproc
 
 # Own GMP, 4ti2gap seems to have problems with ubuntu
 RUN    cd /tmp \
