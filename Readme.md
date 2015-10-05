@@ -2,7 +2,7 @@
 
 This repository contains the Dockerfile for a Docker image
 containing some of the software created in the DFG SPP Computeralgebra.
-The image is availible at https://registry.hub.docker.com/u/sebasguts/sppdocker/
+The image is availible at https://registry.hub.docker.com/u/sppcomputeralgebra/sppdocker/
 
 At the moment, the image contains the following software:
 
@@ -24,7 +24,7 @@ To start a Docker container from the image, you need a new version of
 docker installed on your computer (see https://docs.docker.com/ )
 Then you can start a container with
 ```
-docker run -it sebasguts/sppdocker
+docker run -it sppcomputeralgebra/sppdocker
 ```
 Once this is done, you are presented with a shell, where
 you can execute the CAS listed above as you are used to.
