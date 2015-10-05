@@ -10,6 +10,7 @@ At the moment, the image contains the following software:
 * Polymake (latest snapshot)
 * Normaliz (3.0)
 * 4ti2 (independent Polymake)
+* Nemo
 * GAP together with:
   - homalg (deposited packages)
   - PolymakeInterface
