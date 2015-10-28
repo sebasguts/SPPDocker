@@ -1,6 +1,6 @@
 ## Dockerfile for the DFG SPP Computeralgebra Software
 
-FROM ubuntu:utopic
+FROM ubuntu:trusty
 
 MAINTAINER Sebastian Gutsche <sebastian.gutsche@gmail.com>
 
