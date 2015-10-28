@@ -37,6 +37,7 @@ RUN    sudo apt-get -qq install -y \
     libncurses5-dev \
     libntl-dev \
     libperl-dev \
+    libppl-dev \
     libreadline6-dev \
     libsvn-perl \
     libterm-readline-gnu-perl \
