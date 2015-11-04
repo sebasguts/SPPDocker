@@ -46,7 +46,7 @@ RUN    chmod +x install_4ti2.sh \
     && ./install_4ti2.sh ${gmp_folder} ${FourTiTwo_shared_folder}
 
 ## Normaliz
-RUN    chmod + install_normaliz.sh \
+RUN    chmod +x install_normaliz.sh \
     && ./install_normaliz.sh 082f1e01542111d28296550fd26e20a4aaf0d0d9 ${gmp_folder}
 
 # GAP
