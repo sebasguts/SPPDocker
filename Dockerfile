@@ -51,10 +51,10 @@ RUN ./install_gap.sh http://www.gap-system.org/pub/gap/gap47/tar.gz/gap4r7p8_201
 RUN ./install_nemo.sh
 
 # Local package folder and workspace for GAP
-RUN ./install_gap_options
+RUN ./install_gap_options.sh
 
 # GAP packages: homalg-project, SingularInterface, NormalizInterface, 4ti2gap
-RUN ./install_gap_packages ${gmp_folder} ${FourTiTwo_shared_folder}
+RUN ./install_gap_packages.sh ${gmp_folder} ${FourTiTwo_shared_folder}
 
 ## Installation complete, setting up user enviroment
 
