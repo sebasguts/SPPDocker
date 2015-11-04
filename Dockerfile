@@ -39,11 +39,11 @@ RUN    chmod +x install_singular.sh \
 RUN    chmod +x install_polymake.sh \
     && ./install_polymake.sh ${gmp_folder}
 
-ENV 4ti2_shared_folder /home/spp/4ti2-shared
+ENV FourTiTwo_shared_folder /home/spp/4ti2-shared
 
 # 4ti2
 RUN    chmod +x install_4ti2.sh \
-    && ./install_4ti2.sh ${gmp_folder} ${4ti2_shared_folder}
+    && ./install_4ti2.sh ${gmp_folder} ${FourTiTwo_shared_folder}
 
 ## Normaliz
 RUN    chmod + install_normaliz.sh \
@@ -63,7 +63,7 @@ RUN    chmod +x install_gap_options.sh \
 
 # GAP packages: homalg-project, SingularInterface, NormalizInterface, 4ti2gap
 RUN    chmod +x install_gap_packages.sh \
-    && ./install_gap_packages ${gmp_folder} ${4ti2_shared_folder}
+    && ./install_gap_packages ${gmp_folder} ${FourTiTwo_shared_folder}
 
 ENV HOME /home/spp
 ENV PATH /home/spp/bin:$PATH
