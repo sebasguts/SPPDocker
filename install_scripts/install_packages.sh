@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Installing packages for ubuntu
+echo "Installing packages for ubuntu"
 
 sudo apt-get -qq install -y \
     ant \
