@@ -16,6 +16,8 @@ ADD install_scripts /tmp/install_scripts
 
 WORKDIR /tmp/install_scripts
 
+RUN sudo chown -R spp:spp /tmp/install_scripts
+
 RUN    chmod +x install_packages.sh \
     && ./install_packages.sh
 
