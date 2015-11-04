@@ -37,7 +37,7 @@ RUN    chmod +x install_singular.sh \
 
 # Polymake
 RUN    chmod +x install_polymake.sh \
-    && ./install_polymake ${gmp_folder}
+    && ./install_polymake.sh ${gmp_folder}
 
 ENV 4ti2_shared_folder /home/spp/4ti2-shared
 
