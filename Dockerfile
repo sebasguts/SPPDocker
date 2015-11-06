@@ -39,7 +39,7 @@ RUN ./install_singular.sh 08fd464d5e4df1154e463c07e5e6ba3e86a18200 ${gmp_folder}
 RUN ./install_polymake.sh ${gmp_folder}
 
 # 4ti2
-RUN ./install_4ti2.sh ${gmp_folder} ${FourTiTwo_shared_folder}
+RUN ./install_4ti2.sh 1.6.6 ${gmp_folder} ${FourTiTwo_shared_folder}
 
 ## Normaliz
 RUN ./install_normaliz.sh 082f1e01542111d28296550fd26e20a4aaf0d0d9 ${gmp_folder}
