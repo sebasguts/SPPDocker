@@ -7,6 +7,7 @@ number_cores=$(cat /proc/cpuinfo | grep processor | wc -l)
 mkdir -p /opt/gap/local/pkg
 
 sudo touch /usr/bin/gap
+sudo chown spp:spp /usr/bin/gap
 sudo chmod 0755 /usr/bin/gap
 cat > /usr/bin/gap <<EOF
 #!/bin/bash
@@ -14,6 +15,7 @@ cat > /usr/bin/gap <<EOF
 EOF
 
 sudo touch /usr/bin/gapL
+sudo chown spp:spp /usr/bin/gap
 sudo chmod 0755 /usr/bin/gapL
 cat > /usr/bin/gapL <<EOF
 #!/bin/bash
