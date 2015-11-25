@@ -15,7 +15,7 @@ cat > /usr/bin/gap <<EOF
 EOF
 
 sudo touch /usr/bin/gapL
-sudo chown spp:spp /usr/bin/gap
+sudo chown spp:spp /usr/bin/gapL
 sudo chmod 0755 /usr/bin/gapL
 cat > /usr/bin/gapL <<EOF
 #!/bin/bash
