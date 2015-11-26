@@ -35,7 +35,7 @@ make
 # Homalg
 cd $GAP_PKG_DIR
 export homalg_modules="AlgebraicThomas AbelianSystems alexander AutoDoc Blocks Conley D-Modules \
-                       k-Points LessGenerators LetterPlace SCO SCSCP_ForHomalg Sheaves SimplicialObjects \
+                       k-Points LessGenerators LetterPlace SCSCP_ForHomalg Sheaves SimplicialObjects \
                        SystemTheory VirtualCAS CombinatoricsForHomalg CAP_project PrimaryDecomposition SingularForHomalg homalg_project"
 for i in $homalg_modules; do git clone https://github.com/homalg-project/${i}.git; done
 cd homalg_project/Gauss
