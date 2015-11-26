@@ -45,7 +45,7 @@ RUN ./install_4ti2.sh 1.6.6 ${gmp_folder} ${FourTiTwo_shared_folder}
 RUN ./install_normaliz.sh 082f1e01542111d28296550fd26e20a4aaf0d0d9 ${gmp_folder}
 
 # GAP
-RUN ./install_gap.sh http://www.gap-system.org/pub/gap/gap47/tar.gz/gap4r7p8_2015_06_09-20_27.tar.gz ${gmp_folder}
+RUN ./install_gap.sh http://www.gap-system.org/pub/gap/gap48/beta/gap4r8p0_2015_11_01-13_28.tar.gz ${gmp_folder}
 
 # # Nemo
 RUN ./install_nemo.sh
