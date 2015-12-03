@@ -45,6 +45,14 @@ cd ../PolymakeInterface
 ./configure /opt/gap
 make
 
+# create documentation
+cd $GAP_PKG_DIR
+for i in $homalg_modules; do
+  cd $i
+  make doc
+  cd ..
+done
+
 # More packages
 cd $GAP_PKG_DIR
 git clone https://github.com/martin-leuner/alcove.git
