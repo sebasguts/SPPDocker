@@ -29,9 +29,3 @@ SetUserPreference( "UseColorsInTerminal", true );
 SetUserPreference( "HistoryMaxLines", 10000 );
 SetUserPreference( "SaveAndRestoreHistory", true );
 EOF
-
-cd /opt/gap
-wget http://www.gap-system.org/Download/CreateWorkspace.sh
-chmod +x CreateWorkspace.sh
-./CreateWorkspace.sh
-rm CreateWorkspace.sh

@@ -95,3 +95,10 @@ chmod +x init_homalg_starter
 ./create_homalg_starter_git
 /home/spp/bin/autogap < /dev/null
 /home/spp/bin/Autogap < /dev/null
+
+cd /opt/gap
+wget http://www.gap-system.org/Download/CreateWorkspace.sh
+chmod +x CreateWorkspace.sh
+./CreateWorkspace.sh
+rm CreateWorkspace.sh
+
