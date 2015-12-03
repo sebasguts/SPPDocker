@@ -45,13 +45,37 @@ cd ../PolymakeInterface
 ./configure /opt/gap
 make
 
+cd /opt/gap/pkg
+rm -rf $homalg_modules
+cd $GAP_PKG_DIR
+
 # create documentation
+# horrible horrible hack to get the documentation working
+cat > /tmp/gap_doc_hack.g <<EOF
+LoadPackage( "AutoDoc" );
+LoadPackage( "GAPDoc" );
+MakeReadWriteGlobal( "MakeGAPDocDoc" );
+BindGlobal( "MakeGAPDocDoc", AutoDoc_MakeGAPDocDoc_WithoutLatex );
+EOF
+
+cat > /usr/bin/gap <<EOF
+#!/bin/bash
+/opt/gap/bin/gap.sh -l "/opt/gap/local;/opt/gap" /tmp/gap_doc_hack.g "\$@"
+EOF
+
 cd $GAP_PKG_DIR
 for i in $homalg_modules; do
   cd $i
   make doc
   cd ..
 done
+
+cat > /usr/bin/gap <<EOF
+#!/bin/bash
+/opt/gap/bin/gap.sh -l "/opt/gap/local;/opt/gap" "\$@"
+EOF
+
+rm /tmp/gap_doc_hack.g
 
 # More packages
 cd $GAP_PKG_DIR
