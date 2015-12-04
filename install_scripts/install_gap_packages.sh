@@ -45,8 +45,13 @@ cd ../PolymakeInterface
 ./configure /opt/gap
 make
 
+export homalg_project_packages="4ti2Interface ExamplesForHomalg GaussForHomalg GradedModules homalg IO_ForHomalg \
+                                MatricesForHomalg PolymakeInterface SCO ToricVarieties Convex Gauss GradedRingForHomalg \
+                                HomalgToCAS LocalizeRingForHomalg Modules RingsForHomalg ToolsForHomalg"
+
 cd /opt/gap/pkg
 rm -rf $homalg_modules
+rm -rf $homalg_project_packages
 cd $GAP_PKG_DIR
 
 # create documentation
