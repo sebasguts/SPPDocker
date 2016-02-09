@@ -12,7 +12,7 @@ sudo apt-get -qq install -y \
     bzip2 \
     clang \
     cmake \
-    dephelper \
+    debhelper \
     default-jdk \
     g++ \
     git \
