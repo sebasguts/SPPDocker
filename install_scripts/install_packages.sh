@@ -9,12 +9,19 @@ sudo apt-get -qq install -y \
     autogen \
     bliss \
     build-essential \
+    bzip2 \
+    clang \
     cmake \
+    dep-helper \
+    default-jdk \
     g++ \
     git \
+    graphviz \
+    language-pack-en \
     libbliss-dev \
     libboost-dev \
     libcdd-dev \
+    libdatetime-perl \
     libfplll-dev \
     libglpk-dev \
     libgmp-dev \
@@ -30,6 +37,7 @@ sudo apt-get -qq install -y \
     libreadline6-dev \
     libsvn-perl \
     libterm-readline-gnu-perl \
+    libterm-readkey-perl \
     libtool \
     libxml-libxml-perl \
     libxml-libxslt-perl \
@@ -38,6 +46,7 @@ sudo apt-get -qq install -y \
     libxml2-dev \
     m4 \
     mercurial \
+    mongodb \
     nano \
     screen \
     unzip \
@@ -45,3 +54,5 @@ sudo apt-get -qq install -y \
     w3c-dtd-xhtml \
     wget \
     xsltproc
+
+sudo apt-get -qq clean -y

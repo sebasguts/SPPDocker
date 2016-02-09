@@ -59,7 +59,7 @@ RUN sudo chmod a+x install_normaliz.sh \
 # GAP
 ADD install_scripts/install_gap.sh /tmp/install_scripts/install_gap.sh
 RUN sudo chmod a+x install_gap.sh \
-    && ./install_gap.sh http://www.gap-system.org/pub/gap/gap48/beta/gap4r8p0_2015_11_01-13_28.tar.gz ${gmp_folder}
+    && ./install_gap.sh ftp://ftp.gap-system.org/pub/gap/gap48/beta/gap4r8p1_2015_12_23-23_30.tar.gz ${gmp_folder}
 
 # # Nemo
 ADD install_scripts/install_nemo.sh /tmp/install_scripts/install_nemo.sh
