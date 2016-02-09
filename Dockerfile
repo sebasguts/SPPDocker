@@ -29,7 +29,7 @@ RUN sudo chmod a+x install_packages.sh \
 # Own GMP, 4ti2gap seems to have problems with ubuntu
 ADD install_scripts/install_gmp.sh /tmp/install_scripts/install_gmp.sh
 RUN sudo chmod a+x install_gmp.sh \
-    && ./install_gmp.sh gmp-6.1.0.tar.bz2 gmp-6.0.0 ${gmp_folder}
+    && ./install_gmp.sh gmp-6.1.0.tar.bz2 gmp-6.1.0 ${gmp_folder}
 
 # Flint
 ADD install_scripts/install_flint.sh /tmp/install_scripts/install_flint.sh
