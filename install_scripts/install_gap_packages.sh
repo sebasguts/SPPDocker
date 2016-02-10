@@ -47,7 +47,8 @@ make
 
 export homalg_project_packages="4ti2Interface ExamplesForHomalg GaussForHomalg GradedModules homalg IO_ForHomalg \
                                 MatricesForHomalg PolymakeInterface SCO ToricVarieties Convex Gauss GradedRingForHomalg \
-                                HomalgToCAS LocalizeRingForHomalg Modules RingsForHomalg ToolsForHomalg"
+                                HomalgToCAS LocalizeRingForHomalg Modules RingsForHomalg ToolsForHomalg CAP LinearAlgebraForCAP ModulePresentationsForCAP \
+                                GeneralizedMorphismsForCAP numericalsgps"
 
 cd /opt/gap/pkg
 rm -rf $homalg_modules
