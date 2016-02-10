@@ -11,7 +11,7 @@ cd $GAP_PKG_DIR
 git clone https://github.com/fingolfin/NormalizInterface.git
 cd NormalizInterface
 git clone https://github.com/normaliz/Normaliz Normaliz.git
-./build-normaliz.sh
+./build-normaliz.sh /opt/gap
 ./autogen.sh
 ./configure --with-gaproot=/opt/gap --with-normaliz=$PWD/Normaliz.git/DST --with-gmp=$1
 make
