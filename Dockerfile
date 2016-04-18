@@ -34,12 +34,12 @@ RUN sudo chmod a+x install_gmp.sh \
 # Flint
 ADD install_scripts/install_flint.sh /tmp/install_scripts/install_flint.sh
 RUN sudo chmod a+x install_flint.sh \
-    && ./install_flint.sh d04689f030cee93355cb65b0e967fc43d35f7aeb ${gmp_folder}
+    && ./install_flint.sh 6838fa579e65121fd1ddeb23b03a52018d92e9a2 ${gmp_folder}
 
 # Singular
 ADD install_scripts/install_singular.sh /tmp/install_scripts/install_singular.sh
 RUN sudo chmod a+x install_singular.sh \
-    && ./install_singular.sh 42fe0265afe6128f9fea4f5c11d875f9997b45fd ${gmp_folder}
+    && ./install_singular.sh 502a3d14e5178fe1e2f75a234552d8531c0c594c ${gmp_folder}
 
 # Polymake
 ADD install_scripts/install_polymake.sh /tmp/install_scripts/install_polymake.sh
@@ -49,17 +49,17 @@ RUN sudo chmod a+x install_polymake.sh \
 # 4ti2
 ADD install_scripts/install_4ti2.sh /tmp/install_scripts/install_4ti2.sh
 RUN sudo chmod a+x install_4ti2.sh \
-    && ./install_4ti2.sh 1.6.6 ${gmp_folder} ${FourTiTwo_shared_folder}
+    && ./install_4ti2.sh 1.6.7 ${gmp_folder} ${FourTiTwo_shared_folder}
 
 ## Normaliz
 ADD install_scripts/install_normaliz.sh /tmp/install_scripts/install_normaliz.sh
 RUN sudo chmod a+x install_normaliz.sh \
-    && ./install_normaliz.sh cd49c57a43bc70ca47108375b8afbf63c1e3f985 ${gmp_folder}
+    && ./install_normaliz.sh fdf877804e473a4f59e3b20465598f97088fb547 ${gmp_folder}
 
 # GAP
 ADD install_scripts/install_gap.sh /tmp/install_scripts/install_gap.sh
 RUN sudo chmod a+x install_gap.sh \
-    && ./install_gap.sh ftp://ftp.gap-system.org/pub/gap/gap48/beta/gap4r8p1_2015_12_23-23_30.tar.gz ${gmp_folder}
+    && ./install_gap.sh http://www.gap-system.org/pub/gap/gap48/tar.gz/gap4r8p3_2016_03_19-22_17.tar.gz ${gmp_folder}
 
 # # Nemo
 ADD install_scripts/install_nemo.sh /tmp/install_scripts/install_nemo.sh
