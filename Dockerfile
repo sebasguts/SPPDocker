@@ -34,12 +34,12 @@ RUN sudo chmod a+x install_gmp.sh \
 # Flint
 ADD install_scripts/install_flint.sh /tmp/install_scripts/install_flint.sh
 RUN sudo chmod a+x install_flint.sh \
-    && ./install_flint.sh 6838fa579e65121fd1ddeb23b03a52018d92e9a2 ${gmp_folder}
+    && ./install_flint.sh 6bf454d77b7359dae53205b041b2d812c056cd44 ${gmp_folder}
 
 # Singular
 ADD install_scripts/install_singular.sh /tmp/install_scripts/install_singular.sh
 RUN sudo chmod a+x install_singular.sh \
-    && ./install_singular.sh 502a3d14e5178fe1e2f75a234552d8531c0c594c ${gmp_folder}
+    && ./install_singular.sh f0bd4cf28bbb221bfdd95862537792a67c30ef12 ${gmp_folder}
 
 # Polymake
 ADD install_scripts/install_polymake.sh /tmp/install_scripts/install_polymake.sh
@@ -54,12 +54,12 @@ RUN sudo chmod a+x install_4ti2.sh \
 ## Normaliz
 ADD install_scripts/install_normaliz.sh /tmp/install_scripts/install_normaliz.sh
 RUN sudo chmod a+x install_normaliz.sh \
-    && ./install_normaliz.sh fdf877804e473a4f59e3b20465598f97088fb547 ${gmp_folder}
+    && ./install_normaliz.sh 1107d7863db871230da40928b26ccf01c58ced34 ${gmp_folder}
 
 # GAP
 ADD install_scripts/install_gap.sh /tmp/install_scripts/install_gap.sh
 RUN sudo chmod a+x install_gap.sh \
-    && ./install_gap.sh http://www.gap-system.org/pub/gap/gap48/tar.gz/gap4r8p3_2016_03_19-22_17.tar.gz ${gmp_folder}
+    && ./install_gap.sh http://www.gap-system.org/pub/gap/gap48/tar.gz/gap4r8p6_2016_11_12-14_25.tar.gz ${gmp_folder}
 
 # # Nemo
 ADD install_scripts/install_nemo.sh /tmp/install_scripts/install_nemo.sh

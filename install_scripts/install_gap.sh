@@ -14,8 +14,4 @@ sudo chown -R spp /opt/gap
 cd /opt/gap
 ./configure --with-gmp=$2
 make -j${number_cores}
-cd pkg
-wget https://raw.githubusercontent.com/gap-system/gap-docker/master/InstPackages.sh
-chmod +x InstPackages.sh
-./InstPackages.sh
-rm -rf InstPackages.sh
+./makepkgs
