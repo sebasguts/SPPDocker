@@ -29,17 +29,17 @@ RUN sudo chmod a+x install_packages.sh \
 # Own GMP, 4ti2gap seems to have problems with ubuntu
 ADD install_scripts/install_gmp.sh /tmp/install_scripts/install_gmp.sh
 RUN sudo chmod a+x install_gmp.sh \
-    && ./install_gmp.sh gmp-6.1.0.tar.bz2 gmp-6.1.0 ${gmp_folder}
+    && ./install_gmp.sh gmp-6.1.2.tar.bz2 gmp-6.1.2 ${gmp_folder}
 
 # Flint
 ADD install_scripts/install_flint.sh /tmp/install_scripts/install_flint.sh
 RUN sudo chmod a+x install_flint.sh \
-    && ./install_flint.sh 6bf454d77b7359dae53205b041b2d812c056cd44 ${gmp_folder}
+    && ./install_flint.sh 61dc2ced48297c09fe3a501a0253251c4dc5acd9 ${gmp_folder}
 
 # Singular
 ADD install_scripts/install_singular.sh /tmp/install_scripts/install_singular.sh
 RUN sudo chmod a+x install_singular.sh \
-    && ./install_singular.sh f0bd4cf28bbb221bfdd95862537792a67c30ef12 ${gmp_folder}
+    && ./install_singular.sh b4e678f4ebbc2cbfb443db3205b1e086ba00bb4c ${gmp_folder}
 
 # Polymake
 ADD install_scripts/install_polymake.sh /tmp/install_scripts/install_polymake.sh
@@ -54,12 +54,12 @@ RUN sudo chmod a+x install_4ti2.sh \
 ## Normaliz
 ADD install_scripts/install_normaliz.sh /tmp/install_scripts/install_normaliz.sh
 RUN sudo chmod a+x install_normaliz.sh \
-    && ./install_normaliz.sh 1107d7863db871230da40928b26ccf01c58ced34 ${gmp_folder}
+    && ./install_normaliz.sh e1c77b09d1308d6304160847267743d435c74abb ${gmp_folder}
 
 # GAP
 ADD install_scripts/install_gap.sh /tmp/install_scripts/install_gap.sh
 RUN sudo chmod a+x install_gap.sh \
-    && ./install_gap.sh http://www.gap-system.org/pub/gap/gap48/tar.gz/gap4r8p6_2016_11_12-14_25.tar.gz ${gmp_folder}
+    && ./install_gap.sh https://www.gap-system.org/pub/gap/gap48/tar.gz/gap4r8p8_2017_08_20-15_12.tar.gz ${gmp_folder}
 
 # # Nemo
 ADD install_scripts/install_nemo.sh /tmp/install_scripts/install_nemo.sh
